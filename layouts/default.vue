@@ -1,62 +1,39 @@
 <template>
-  <div>
-    <Nuxt />
+  <div class="app">
+    <Header />
+    <div class="app-body">
+      <main class="main">
+        <div class="container-fluid">
+          <h1 class="h4 pb-2 my-3 border-bottom border-secondary">{{ title }}</h1>
+          <nuxt />
+        </div>
+      </main>
+    </div>
   </div>
 </template>
 
-<style>
-html {
-  font-family:
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
+<script>
+  import Header from "../components/Layout/Header/Header"
+  export default {
+    components: {
+      Header,
+    },
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-}
+    data () {
+      return {
+        title: '',
+      }
+    },
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
+    created () {
+      this.$nuxt.$on('setHeader', this.setHeader)
+    },
 
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
+    methods: {
+      setHeader(header) {
+        this.title  = header.title  || '';
+      }
+    }
 
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
-}
-</style>
+  }
+</script>

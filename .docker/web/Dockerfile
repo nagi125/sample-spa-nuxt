@@ -1,7 +1,7 @@
 FROM node:13.8-alpine
 
 RUN apk update && \
-    apk add git && \
+    apk add git python make g++ && \
     apk add --no-cache curl && \
     curl -o- -L https://yarnpkg.com/install.sh | sh && \
     yarn add @vue/cli @vue/cli-service-global nuxt create-nuxt-app

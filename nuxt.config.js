@@ -42,5 +42,40 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
-  }
+  },
+
+  axios: {
+    proxy: true,
+  },
+
+  proxy: {
+    '/api/': {
+      target: process.env.BASE_URL,
+    }
+  },
+
+  auth: {
+    redirect: {
+      login: '/login',
+      logout: '/login',
+      callback: false,
+      home: '/'
+    },
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: '/api/admin/auth/login', method: 'post', propertyName: false },
+          user: { url: '/api/admin/user', method: 'get', propertyName: false },
+          logout: false
+        },
+        tokenRequired: false,
+        tokenType: false,
+      }
+    },
+    localStorage: false,
+  },
+
+  router: {
+    middleware: ['auth']
+  },
 }

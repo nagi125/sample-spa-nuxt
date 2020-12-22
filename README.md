@@ -1,20 +1,19 @@
-# blog
+## 概要
+[sample-spa-laravel](https://github.com/nagi125/sample-spa-laravel)のFrontend
+SPAの確認をするための最低限の実装にしてあります。
 
-## Build Setup
+## 構成図
+![構成図](./.doc/images/frontend.png)
 
-```bash
-# install dependencies
-$ yarn install
-
-# serve with hot reload at localhost:3000
-$ yarn dev
-
-# build for production and launch server
-$ yarn build
-$ yarn start
-
-# generate static project
-$ yarn generate
+## 初期セットアップ
+```
+$ docker-compose build
+$ docker-compose up -d
+$ docker-compose exec web yarn install
+$ docker-compose exec web yarn dev
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+## 各種コマンド
+```
+$ docker-compose exec web yarn dev
+```

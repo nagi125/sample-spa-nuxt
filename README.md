@@ -1,5 +1,5 @@
 ## 概要
-[sample-spa-laravel](https://github.com/nagi125/sample-spa-laravel)のFrontend
+[sample-spa-laravel](https://github.com/nagi125/sample-spa-laravel)のFrontend  
 SPAの確認をするための最低限の実装にしてあります。
 
 ## 構成図
